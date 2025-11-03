@@ -21,7 +21,7 @@ public class CandidateValidator implements Predicate<Candidate> {
     }
 
     private boolean isOlderThan(Candidate c, int age) {
-        return c.getAge() > age;
+        return c.getAge() >= age;
     }
 
     private boolean isAllowedToVote(Candidate c) {
