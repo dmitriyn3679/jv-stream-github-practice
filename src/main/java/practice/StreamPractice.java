@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
 import model.Candidate;
 import model.Cat;
 import model.Person;
@@ -76,7 +75,9 @@ public class StreamPractice {
                 .stream()
                 .filter(
                         person -> person.getAge() >= fromAge
-                                && person.getAge() <= (person.getSex() == Person.Sex.MAN ? maleToAge : femaleToAge
+                                && person.getAge() <= (person.getSex() == Person.Sex.MAN
+                                ? maleToAge
+                                : femaleToAge
                 ))
                 .collect(Collectors.toList());
     }

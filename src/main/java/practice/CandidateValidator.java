@@ -1,6 +1,6 @@
 package practice;
-import java.util.function.Predicate;
 
+import java.util.function.Predicate;
 import model.Candidate;
 
 public class CandidateValidator implements Predicate<Candidate> {
@@ -10,7 +10,9 @@ public class CandidateValidator implements Predicate<Candidate> {
 
     @Override
     public boolean test(Candidate c) {
-        if (c == null) return false;
+        if (c == null) {
+            return false;
+        }
 
         return isOlderThan(c, MIN_AGE_EXCLUSIVE)
                 && isAllowedToVote(c)
