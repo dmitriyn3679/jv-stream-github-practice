@@ -5,7 +5,7 @@ import model.Candidate;
 
 public class CandidateValidator implements Predicate<Candidate> {
     private static final String REQUIRED_NATIONALITY = "Ukrainian";
-    private static final int MIN_AGE_EXCLUSIVE = 35;
+    private static final int MIN_REQUIRED_AGE = 35;
     private static final int MIN_YEARS_IN_UA = 10;
 
     @Override
@@ -14,7 +14,7 @@ public class CandidateValidator implements Predicate<Candidate> {
             return false;
         }
 
-        return isOlderThan(c, MIN_AGE_EXCLUSIVE)
+        return isOlderThan(c, MIN_REQUIRED_AGE)
                 && isAllowedToVote(c)
                 && hasRequiredNationality(c, REQUIRED_NATIONALITY)
                 && livedInUkraineForAtLeast(c, MIN_YEARS_IN_UA);
