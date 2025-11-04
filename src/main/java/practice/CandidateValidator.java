@@ -9,33 +9,33 @@ public class CandidateValidator implements Predicate<Candidate> {
     private static final int MIN_YEARS_IN_UA = 10;
 
     @Override
-    public boolean test(Candidate c) {
-        if (c == null) {
+    public boolean test(Candidate candidate) {
+        if (candidate == null) {
             return false;
         }
 
-        return isOlderThan(c, MIN_REQUIRED_AGE)
-                && isAllowedToVote(c)
-                && hasRequiredNationality(c, REQUIRED_NATIONALITY)
-                && livedInUkraineForAtLeast(c, MIN_YEARS_IN_UA);
+        return isOlderThan(candidate, MIN_REQUIRED_AGE)
+                && isAllowedToVote(candidate)
+                && hasRequiredNationality(candidate, REQUIRED_NATIONALITY)
+                && livedInUkraineForAtLeast(candidate, MIN_YEARS_IN_UA);
     }
 
-    private boolean isOlderThan(Candidate c, int age) {
-        return c.getAge() >= age;
+    private boolean isOlderThan(Candidate candidate, int age) {
+        return candidate.getAge() >= age;
     }
 
     private boolean isAllowedToVote(Candidate c) {
         return c.isAllowedToVote();
     }
 
-    private boolean hasRequiredNationality(Candidate c, String nationality) {
-        String n = c.getNationality();
+    private boolean hasRequiredNationality(Candidate candidate, String nationality) {
+        String n = candidate.getNationality();
 
         return n != null && n.trim().equalsIgnoreCase(nationality);
     }
 
-    private boolean livedInUkraineForAtLeast(Candidate c, int minYears) {
-        String period = c.getPeriodsInUkr();
+    private boolean livedInUkraineForAtLeast(Candidate candidate, int minYears) {
+        String period = candidate.getPeriodsInUkr();
         if (period == null) {
             return false;
         }
