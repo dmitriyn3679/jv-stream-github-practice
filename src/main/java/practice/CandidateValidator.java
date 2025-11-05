@@ -31,7 +31,9 @@ public class CandidateValidator implements Predicate<Candidate> {
     private boolean hasRequiredNationality(Candidate candidate, String nationality) {
         String candidateNationality = candidate.getNationality();
 
-        return candidateNationality != null && candidateNationality.trim().equalsIgnoreCase(nationality);
+        return candidateNationality != null && candidateNationality
+                .trim()
+                .equalsIgnoreCase(nationality);
     }
 
     private boolean livedInUkraineForAtLeast(Candidate candidate, int minYears) {
