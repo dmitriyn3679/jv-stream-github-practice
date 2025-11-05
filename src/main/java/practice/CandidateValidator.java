@@ -24,14 +24,14 @@ public class CandidateValidator implements Predicate<Candidate> {
         return candidate.getAge() >= age;
     }
 
-    private boolean isAllowedToVote(Candidate c) {
-        return c.isAllowedToVote();
+    private boolean isAllowedToVote(Candidate candidate) {
+        return candidate.isAllowedToVote();
     }
 
     private boolean hasRequiredNationality(Candidate candidate, String nationality) {
-        String n = candidate.getNationality();
+        String candidateNationality = candidate.getNationality();
 
-        return n != null && n.trim().equalsIgnoreCase(nationality);
+        return candidateNationality != null && candidateNationality.trim().equalsIgnoreCase(nationality);
     }
 
     private boolean livedInUkraineForAtLeast(Candidate candidate, int minYears) {
